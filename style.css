@@ -1,0 +1,210 @@
+/* Siskiyou Biometrics - siskiyoubiometrics.com
+   One page, no framework, no scripts. Register: a well-set letterhead. */
+
+:root {
+  --bg: #f4f2ec;
+  --ink: #20211c;
+  --spruce: #2f4a38;
+  --bark: #5a4a38;
+  --muted: #5f6159;
+  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua",
+           "Noto Serif", "Liberation Serif", "Times New Roman", serif;
+  --mono: "SFMono-Regular", Menlo, Consolas, "Liberation Mono",
+          "DejaVu Sans Mono", "Courier New", monospace;
+}
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.page {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 3rem;
+}
+
+/* Masthead: the lockup and nothing else */
+.masthead h1 {
+  margin: 0;
+}
+.masthead img {
+  display: block;
+  width: 100%;
+  max-width: 19rem;
+  height: auto;
+}
+
+/* Identity line */
+.identity {
+  margin-top: 2.75rem;
+}
+.identity p {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+
+/* Sections: thin spruce rule, letterspaced mono label, serif body */
+section + section {
+  margin-top: 2.75rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--spruce);
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-family: var(--mono);
+  font-weight: normal;
+  font-size: 0.76rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+p {
+  margin: 0 0 1.1rem;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+ul.services {
+  list-style: none;
+  margin: 0 0 1.1rem;
+  padding: 0;
+}
+ul.services li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+ul.services li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--bark);
+}
+
+a {
+  color: var(--spruce);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+a:hover,
+a:focus {
+  color: var(--bark);
+}
+
+.email a {
+  font-size: 1.2rem;
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--spruce);
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 32rem) {
+  body {
+    font-size: 1.0625rem;
+  }
+  .page {
+    padding: 2.25rem 1.25rem 2.5rem;
+  }
+  .masthead img {
+    max-width: 15rem;
+  }
+  .identity p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Navigation (stage one, multi-page) */
+.nav { margin-top: 1.2rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; }
+.nav a { color: var(--muted); text-decoration: none; margin-right: 1.4rem; }
+.nav a:hover, .nav a:focus { color: var(--spruce); }
+.masthead a img { display: block; }
+/* Placeholder slots, removed when copy lands */
+.slot { color: var(--bark); font-family: var(--mono); font-size: 0.85rem; }
+
+/* Stage-one copy classes (2026-08-31) */
+.identity .topline {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+.identity .linetwo {
+  margin: 0.9rem 0 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+.signature {
+  margin-top: 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bark);
+}
+.closing p {
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+main > section:first-child {
+  margin-top: 2.75rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--spruce);
+}
+.bio-photo {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+  margin: 0.4rem 0 1.4rem;
+}
+.pubs { padding-left: 1.2rem; }
+.pubs li { margin: 0.7rem 0; }
+h1 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+section h1 {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--spruce);
+  margin: 0 0 0.9rem;
+}
+.identity h1.topline {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  font-weight: 700;
+}
