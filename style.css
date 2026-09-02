@@ -177,7 +177,7 @@ h2.heading {
   height: auto;
   aspect-ratio: 3 / 2;
   object-fit: cover;
-  object-position: 50% 65%;
+  object-position: 50% 50%;
 }
 
 p {
