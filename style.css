@@ -1,5 +1,21 @@
 /* Siskiyou Biometrics - siskiyoubiometrics.com
-   One page, no framework, no scripts. Register: a well-set letterhead. */
+   Hand-written CSS, no framework, no scripts. Register: a well-set letterhead.
+   Built from website/src/ by website/build.py. */
+
+@font-face {
+  font-family: "Source Serif 4";
+  src: url(/assets/fonts/SourceSerif4-roman.woff2) format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  src: url(/assets/fonts/SourceSerif4-italic.woff2) format("woff2");
+  font-weight: 200 900;
+  font-style: italic;
+  font-display: swap;
+}
 
 :root {
   --bg: #f4f2ec;
@@ -7,7 +23,7 @@
   --spruce: #2f4a38;
   --bark: #5a4a38;
   --muted: #5f6159;
-  --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua",
+  --serif: "Source Serif 4", Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua",
            "Noto Serif", "Liberation Serif", "Times New Roman", serif;
   --mono: "SFMono-Regular", Menlo, Consolas, "Liberation Mono",
           "DejaVu Sans Mono", "Courier New", monospace;
@@ -21,7 +37,7 @@ html {
 body {
   margin: 0;
   font-family: var(--serif);
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   line-height: 1.6;
   color: var(--ink);
 }
@@ -32,42 +48,79 @@ body {
   padding: 3.5rem 1.5rem 3rem;
 }
 
-/* Masthead: the lockup and nothing else */
-.masthead h1 {
-  margin: 0;
-}
-.masthead img {
+/* Masthead: the lockup and the nav */
+.masthead a img {
   display: block;
   width: 100%;
   max-width: 19rem;
   height: auto;
 }
-
-/* Identity line */
-.identity {
-  margin-top: 2.75rem;
+.nav {
+  margin-top: 1.2rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
-.identity p {
-  margin: 0;
-  font-size: 1.5rem;
-  line-height: 1.35;
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-right: 1.4rem;
+}
+.nav a:hover,
+.nav a:focus,
+.nav a[aria-current="page"] {
+  color: var(--spruce);
 }
 
 /* Sections: thin spruce rule, letterspaced mono label, serif body */
+main > section:first-child,
 section + section {
   margin-top: 2.75rem;
   padding-top: 1.6rem;
   border-top: 1px solid var(--spruce);
 }
 
-h2 {
-  margin: 0 0 1rem;
+h1, h2 {
   font-family: var(--mono);
-  font-weight: normal;
+  font-weight: 400;
   font-size: 0.76rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--muted);
+  margin: 0 0 1rem;
+}
+h1 {
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  color: var(--spruce);
+}
+h2.heading {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  margin: 0 0 0.8rem;
+}
+section > h1 + h2.heading {
+  margin-top: 0.4rem;
+}
+.pubs + h2.heading {
+  margin-top: 2rem;
+}
+
+/* Home: the top line is the page's h1 */
+.identity h1.topline {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  font-weight: 600;
+  margin: 0;
 }
 
 p {
@@ -75,26 +128,6 @@ p {
 }
 p:last-child {
   margin-bottom: 0;
-}
-
-ul.services {
-  list-style: none;
-  margin: 0 0 1.1rem;
-  padding: 0;
-}
-ul.services li {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-ul.services li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.78em;
-  width: 0.6rem;
-  height: 1px;
-  background: var(--bark);
 }
 
 a {
@@ -108,8 +141,48 @@ a:focus {
   color: var(--bark);
 }
 
+.signature {
+  margin-top: 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bark);
+}
+
+/* Home services block: linked lead words */
+.services p a {
+  font-weight: 600;
+  text-decoration: none;
+}
+.services p a:hover,
+.services p a:focus {
+  text-decoration: underline;
+}
+
+.closing p {
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
 .email a {
   font-size: 1.2rem;
+}
+
+.bio-photo {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+  margin: 0.4rem 0 1.4rem;
+}
+
+.pubs {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+.pubs li {
+  margin: 0.7rem 0;
 }
 
 footer {
@@ -127,84 +200,18 @@ footer p {
 
 @media (max-width: 32rem) {
   body {
-    font-size: 1.0625rem;
+    font-size: 1.08rem;
   }
   .page {
     padding: 2.25rem 1.25rem 2.5rem;
   }
-  .masthead img {
+  .masthead a img {
     max-width: 15rem;
   }
-  .identity p {
+  .identity h1.topline {
     font-size: 1.3rem;
   }
-}
-
-/* Navigation (stage one, multi-page) */
-.nav { margin-top: 1.2rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; }
-.nav a { color: var(--muted); text-decoration: none; margin-right: 1.4rem; }
-.nav a:hover, .nav a:focus { color: var(--spruce); }
-.masthead a img { display: block; }
-/* Placeholder slots, removed when copy lands */
-.slot { color: var(--bark); font-family: var(--mono); font-size: 0.85rem; }
-
-/* Stage-one copy classes (2026-08-31) */
-.identity .topline {
-  margin: 0;
-  font-size: 1.5rem;
-  line-height: 1.35;
-}
-.identity .linetwo {
-  margin: 0.9rem 0 0;
-  font-size: 1.05rem;
-  color: var(--muted);
-}
-.signature {
-  margin-top: 1.1rem;
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--bark);
-}
-.closing p {
-  color: var(--muted);
-  font-size: 1.02rem;
-}
-main > section:first-child {
-  margin-top: 2.75rem;
-  padding-top: 1.6rem;
-  border-top: 1px solid var(--spruce);
-}
-.bio-photo {
-  display: block;
-  width: 100%;
-  max-width: 20rem;
-  height: auto;
-  margin: 0.4rem 0 1.4rem;
-}
-.pubs { padding-left: 1.2rem; }
-.pubs li { margin: 0.7rem 0; }
-h1 {
-  font-size: inherit;
-  font-weight: inherit;
-  margin: 0;
-}
-section h1 {
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--spruce);
-  margin: 0 0 0.9rem;
-}
-.identity h1.topline {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  line-height: 1.35;
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--ink);
-  font-weight: 700;
+  .nav a {
+    margin-right: 1rem;
+  }
 }
