@@ -251,7 +251,8 @@ a:focus {
 }
 @media (max-width: 60rem) {
   :root {
-    --side: 11rem;
+    --side: 12rem;
+    --gap: 2.5rem;
   }
   h1, h2 {
     letter-spacing: 0.14em;
